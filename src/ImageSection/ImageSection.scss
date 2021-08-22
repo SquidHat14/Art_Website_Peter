@@ -1,0 +1,13 @@
+@use './../vars' as app;
+
+.ImageGrid
+{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+
+  margin-left:15%;
+  margin-right:15%;
+
+  overflow:hidden;
+}

@@ -1,0 +1,46 @@
+@use './../vars' as app;
+
+#TitleArea
+{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#TitleContainer
+{
+    text-align: center;
+    padding: 70px 0 50px;
+    max-height: 200px;
+    box-sizing: content-box;
+    z-index: 1;
+    position: relative;
+}
+
+#Title
+{
+    margin: 0;
+    color : app.$font_color;
+    font-family: cousine, monospace;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+#TitleLink:hover
+{
+    opacity: .7;
+}
+
+#TitleLink
+{
+    color : app.$font_color;
+    font-family: karla, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.1;
+    display: inline;
+    margin: 0 auto;
+    height: calc(20px + 0px);
+    text-decoration: none;
+    outline: 0;
+}

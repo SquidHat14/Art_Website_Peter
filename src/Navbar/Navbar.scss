@@ -1,0 +1,101 @@
+@use './../vars' as app;
+
+$navFont : arial, sans-serif;
+
+.Nav
+{
+  text-align: center;
+  margin-bottom: 40px;
+  color : app.$font_color;
+}
+
+.NavArea
+{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.NavList
+{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.NavLink
+{
+  padding: 0 30px 0 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  position: relative;
+  line-height: 15px;
+  font-size: 15px;
+  text-decoration: none;
+  color : app.$font_color;
+}
+
+.NavLink:hover
+{
+  opacity: .7;
+}
+
+/* Underline styles */
+.NavLink {
+  display: block;
+  position: relative;
+}
+
+/* Fade in */
+.NavLink::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 0.16em;
+  background-color: app.$font_color;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.NavLink:hover::after,
+.NavLink:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+/* Scale from center */
+li .NavLink::after {
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+li .NavLink:hover::after,
+li .NavLink:focus::after{
+  transform: scale(1);
+}
+
+.selected::before
+{
+  transform: scale(1);
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 0.16em;
+  background-color: app.$font_color;
+  opacity: 1;
+}

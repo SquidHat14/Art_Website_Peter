@@ -1,0 +1,105 @@
+@use './../vars' as app;
+@use "sass:math";
+
+$fadeInTime : 1.3s;
+
+.image
+{
+  margin-top: 8px;
+  vertical-align: middle;
+  width:100%;
+  position:relative;
+  
+
+  animation: fadeIn calc(#{$fadeInTime} + var(--animation-order) * .3s);
+  -webkit-animation: fadeIn calc(#{$fadeInTime} + var(--animation-order) * .3s);
+  -moz-animation: fadeIn calc(#{$fadeInTime} + var(--animation-order) * .3s);
+  -o-animation: fadeIn calc(#{$fadeInTime} + var(--animation-order) * .3s);
+  -ms-animation: fadeIn calc(#{$fadeInTime} + var(--animation-order) * .3s);
+}
+
+.overlay
+{
+  animation: moveupoverlay calc(#{$fadeInTime} + var(--animation-order) * .3s);
+  -webkit-animation: moveupoverlay calc(#{$fadeInTime} + var(--animation-order) * .3s);
+  -moz-animation: moveupoverlay calc(#{$fadeInTime} + var(--animation-order) * .3s);
+  -o-animation: moveupoverlay calc(#{$fadeInTime} + var(--animation-order) * .3s);
+  -ms-animation: moveupoverlay calc(#{$fadeInTime} + var(--animation-order) * .3s);
+}
+
+.imageContainer
+{
+  position:relative;
+  top:0px;
+  animation: hoverEaseDown .3s;
+}
+
+.imageContainer:hover
+{
+  top:-10px;
+  animation: hoverEaseUp .3s;
+}
+
+.Column
+{
+    flex: 1 1 32%;
+    padding: 0 4px;
+}
+
+.overlay
+{
+  color: app.$font_color;
+  position:absolute;
+  background:rgba(0, 0, 0, 0.533);
+  opacity:0%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.imageContainer:hover .overlay
+{
+  opacity:100%;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0; top:100px;}
+  100% {opacity:1; top:0px;}
+}
+
+@keyframes moveupoverlay {
+  0% {bottom:-100px;}
+  100% { bottom:0px;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@keyframes hoverEaseUp
+{
+  from    {top:0px;}
+  to   {top:-10px;}
+}
+
+@keyframes hoverEaseDown
+{
+  from    {top:-10px;}
+  to   {top:0px;}
+}

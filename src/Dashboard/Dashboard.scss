@@ -1,0 +1,68 @@
+@use './../vars' as app;
+
+.IMAGEGRID
+{
+  display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-left: 20%;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.UPLOADAREA
+{
+    padding: 0 4px;
+    height: auto;
+    width: 164%;
+    margin-left: 20%;
+    margin-right: 13%;
+    border: 1px solid red;
+}
+
+.IMAGEGRIDCONTAINER
+{
+  display:flex;
+}
+
+
+.IMAGE
+{
+  margin-top: 8px;
+  vertical-align: middle;
+  width:100%;
+  position:relative;
+
+}
+
+.IMAGECONTAINER
+{
+  position:relative;
+  top:0px;
+  display:flex;
+}
+
+.COLUMN
+{
+    flex: 1 1 30%;
+    padding: 0 4px;
+}
+
+.OVERLAY
+{
+  color: app.$font_color;
+  position:absolute;
+  background:rgba(0, 0, 0, 0.533);
+  opacity:0%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.DROPTITLE
+{
+  color: white;
+    font-size: 20px;
+    text-align: center;
+    height: 60px;
+}

@@ -11,6 +11,7 @@ import React from "react";
 
 import ImageSection from './../ImageSection/ImageSection'
 
+
 class Navbar extends Component
 {
    static images;
@@ -23,33 +24,19 @@ class Navbar extends Component
       reload : false,
       activeTab : 'Illustration'
     }
+    this.images = props.images;
   }
 
   componentDidMount()
   {
-    try
-    {
-        fetch('http://localhost:5001/test')
-        .then(res => res.json())
-        .then(data =>
-            {
-                this.images = data.children;
-                console.log(this.images);
-                this.setState(
-                  {reload: true},
-                  () => this.setState({reload: false})
-                )
-            });
-    }
-    catch(err)
-    {
-
-    }
+    this.setState(
+        {reload: true},
+        () => this.setState({reload: false})
+      );
   }
 
   toggleTab = (e) =>
   {
-    console.log(e.target.innerText);
     this.setState({activeTab : e.target.innerText},
         () => {console.log(this.state.activeTab);}
         );
@@ -97,20 +84,22 @@ class Navbar extends Component
             <main>
                 <Switch>
                         <Route path="/Paintings">
-                        {this.Paintings}
+                        {this.Paintings()}
                         </Route>
                         <Route path="/Contact">
-                        {this.Contact}
+                        {this.Contact()}
                         </Route>
                         <Route path="/Shop">
-                        {this.Shop}
+                        {this.Shop()}
                         </Route>
                         <Route path="/Comics">
-                        {this.Comics}
+                        {this.Comics()}
                         </Route>
+                        
                         <Route path="/">
-                        {this.Illustration}
+                        {this.Illustration()}
                         </Route>
+                        
                 </Switch>
             </main>
 

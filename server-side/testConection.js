@@ -9,12 +9,13 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
   console.log('Connected!');
-  truncateQuery();
-  insertQuery();
+  //truncateQuery();
+  //insertQuery();
+  //deleteQuery();
 
 
 
-  connection.query("select * from webimages",               
+  connection.query("select * from login",               
     function (err, result) {
     if (err) throw err;
     console.log(result);
@@ -63,7 +64,16 @@ function insertQuery()
 
 function truncateQuery()
 {
-  connection.query("truncate webimages",               
+  connection.query("truncate login",               
+    function (err, result) {
+    if (err) throw err;
+    console.log(result);
+  });
+}
+
+function deleteQuery()
+{
+  connection.query("delete from login where password != \'$2b$10$/troPlbPbIOox5.B2bcNa.o\'  ",               
     function (err, result) {
     if (err) throw err;
     console.log(result);
